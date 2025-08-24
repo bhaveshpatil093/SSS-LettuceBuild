@@ -1,0 +1,196 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Scratch Sustainability Summit Design System - Deforestation Theme */
+/* All colors, gradients, fonts, and animations defined here */
+
+@layer base {
+  :root {
+    /* Forest Green Theme Colors (HSL) */
+    --forest-deep: 120 70% 15%;
+    --forest-primary: 120 60% 25%;
+    --forest-light: 120 50% 35%;
+    --forest-sage: 120 25% 65%;
+    
+    /* Earth & Soil Palette */
+    --earth-brown: 30 40% 25%;
+    --earth-primary: 30 50% 35%;
+    --earth-light: 30 35% 55%;
+    --earth-tan: 30 25% 75%;
+    
+    /* Deforestation Alert Colors */
+    --fire-red: 10 80% 50%;
+    --burnt-orange: 25 85% 55%;
+    --ash-gray: 0 0% 45%;
+    
+    /* Supporting Colors */
+    --moss-green: 100 40% 60%;
+    --bark-brown: 25 45% 20%;
+    --leaf-cream: 50 30% 95%;
+    --forest-gradient: linear-gradient(135deg, hsl(var(--forest-deep)) 0%, hsl(var(--forest-primary)) 50%, hsl(var(--moss-green)) 100%);
+    --earth-gradient: linear-gradient(45deg, hsl(var(--earth-brown)) 0%, hsl(var(--burnt-orange)) 100%);
+    --nature-gradient: linear-gradient(135deg, hsl(var(--forest-deep)) 0%, hsl(var(--earth-primary)) 100%);
+    
+    /* Shadcn Base Colors */
+    --background: var(--leaf-cream);
+    --foreground: var(--bark-brown);
+    --card: var(--leaf-cream);
+    --card-foreground: var(--bark-brown);
+    --popover: var(--leaf-cream);
+    --popover-foreground: var(--bark-brown);
+    --primary: var(--forest-primary);
+    --primary-foreground: var(--leaf-cream);
+    --secondary: var(--forest-sage);
+    --secondary-foreground: var(--bark-brown);
+    --muted: var(--forest-sage);
+    --muted-foreground: var(--forest-deep);
+    --accent: var(--earth-tan);
+    --accent-foreground: var(--bark-brown);
+    --destructive: var(--fire-red);
+    --destructive-foreground: var(--leaf-cream);
+    --border: var(--forest-sage);
+    --input: var(--forest-sage);
+    --ring: var(--forest-primary);
+    --radius: 1rem;
+  }
+}
+
+@layer components {
+  /* Hero Gradient Backgrounds */
+  .bg-forest-gradient {
+    background: var(--forest-gradient);
+  }
+  
+  .bg-earth-gradient {
+    background: var(--earth-gradient);
+  }
+  
+  .bg-nature-gradient {
+    background: var(--nature-gradient);
+  }
+  
+  /* Glassmorphism Effects */
+  .glass-card {
+    @apply backdrop-blur-lg bg-white/10 border border-white/20 rounded-2xl shadow-xl;
+  }
+  
+  .glass-dark {
+    @apply backdrop-blur-lg bg-black/10 border border-white/10 rounded-2xl;
+  }
+  
+  /* Animated Elements */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .wave-animation {
+    animation: wave 3s ease-in-out infinite;
+  }
+  
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+  
+  /* Text Gradients */
+  .text-forest-gradient {
+    background: var(--forest-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-earth-gradient {
+    background: var(--earth-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Interactive Hover Effects */
+  .hover-lift {
+    @apply transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl;
+  }
+  
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25;
+  }
+  
+  /* Section Spacing */
+  .section-padding {
+    @apply py-16 px-4 md:py-24 md:px-8;
+  }
+  
+  /* Forest Pattern Background */
+  .forest-pattern {
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(34, 139, 34, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(160, 82, 45, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(85, 107, 47, 0.1) 0%, transparent 50%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-inter antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+    @apply font-semibold;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-6xl lg:text-7xl font-bold leading-tight;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl font-semibold;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(2deg); }
+  66% { transform: translateY(-5px) rotate(-2deg); }
+}
+
+@keyframes wave {
+  0%, 100% { transform: translateX(0px) scaleY(1); }
+  50% { transform: translateX(10px) scaleY(1.1); }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+  100% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.6); }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Scroll Animations */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+  }
+  
+  .animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
